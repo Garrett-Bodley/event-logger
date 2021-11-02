@@ -3,13 +3,17 @@ class EventsController < ApplicationController
   def new
     # binding.pry
     @alert = alert
-    @event = Event.new
+    @event ||= Event.new
   end
 
   def create
-    @event = parse_log(event_params[:log_txt])
-    @event.save
-    redirect_to @event
+    @alert = alert
+    @event = Event.new(parse_log(event_params))
+    if @event.save 
+      redirect_to @event
+    end
+    @alert = "Invalid input provided!"
+    render :new
   end
 
   def show
@@ -23,9 +27,13 @@ class EventsController < ApplicationController
   private
 
   def parse_log(text)
-    src = text.match(/\ssrc=(\S*)\s/)[1]
-    dst = text.match(/\sdst=(\S*)\s/)[1]
-    return Event.new(src: src, dst: dst, log_txt: text)
+    begin
+      src = text.match(/\ssrc=(\S*)\s/)[1]
+      dst = text.match(/\sdst=(\S*)\s/)[1]
+      return { src: src, dst: dst, log_txt: text }
+    rescue
+      return false
+    end
   end
 
   def event_params
