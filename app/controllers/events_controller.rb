@@ -1,7 +1,6 @@
 class EventsController < ApplicationController
 
   def new
-    # binding.pry
     @alert = alert
     @event ||= Event.new
   end
@@ -22,6 +21,10 @@ class EventsController < ApplicationController
     rescue
       redirect_to new_event_path, alert: "Event with ID of #{params[:id]} does not exist!"
     end
+  end
+
+  def index
+    @events = Event.all
   end
 
   private
