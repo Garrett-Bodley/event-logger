@@ -1,9 +1,9 @@
 <% if object.errors.any? %>
   <fieldset class="alert">
-    <h2><%= pluralize(object.errors.count, "error") %> prohibited this from being saved:</h2></h2>
+    <p><%= pluralize(object.errors.count, "error") %> prohibited this from being saved:</p>
     <ul>
-      <% object.errors.full_messages.each do |error| %>
-       <li><%= error %></li>
+      <% object.errors.each do |attr, msg| %>
+       <li><%= msg %></li>
       <% end %>
     </ul>
   </fieldset>
