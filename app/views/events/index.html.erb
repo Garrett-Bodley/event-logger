@@ -1,0 +1,16 @@
+<div class="event_container">
+  <div class="card">
+    <h3>Logged Events</h3>
+    <ul class="event_list">
+      <% @events.each do |event| %>
+      <li class="event_item">
+        <span>Id: <%=event.id%></span>
+        <span>Source IP: <%=event.src%></span>
+        <span>Destination IP: <%=event.dst%></span>
+        <%= link_to "View Event", event_path(event) %>
+      </li>
+      <% end %>
+    </ul>
+    </div>
+  </div>
+</div>
