@@ -1,4 +1,4 @@
-<%= form_for @event do |f| %>
+<%= form_for @event, html: {class: "new_event card"} do |f| %>
   <fieldset>
     <%= f.label :log_txt, "Paste log text here:", class: "label" %>
     <%= f.text_area :log_txt %>
