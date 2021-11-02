@@ -1,15 +1,23 @@
 class EventsController < ApplicationController
 
   def new
+    # binding.pry
+    @alert = alert
     @event = Event.new
   end
 
   def create
-    parse_log(event_params[:log_txt])
+    @event = parse_log(event_params[:log_txt])
+    @event.save
+    redirect_to @event
   end
 
   def show
-    @event = Event.find(params[:id])
+    begin
+      @event = Event.find(params[:id])
+    rescue
+      redirect_to new_event_path, alert: "Event with ID of #{params[:id]} does not exist!"
+    end
   end
 
   private
@@ -17,8 +25,7 @@ class EventsController < ApplicationController
   def parse_log(text)
     src = text.match(/\ssrc=(\S*)\s/)[1]
     dst = text.match(/\sdst=(\S*)\s/)[1]
-    @event = Event.new(src: src, dst: dst, log_txt: text)
-    binding.pry
+    return Event.new(src: src, dst: dst, log_txt: text)
   end
 
   def event_params
