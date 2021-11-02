@@ -1,0 +1,43 @@
+// Place all the styles related to the events controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.new_event_container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  padding: 3em 2em;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+form.new_event {
+  width: 100%;
+  max-width: 70%;
+  overflow: hidden;
+  border: 1px solid black;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2em 1em;
+  position: relative
+}
+
+.label {
+  display: block;
+  padding: .5em 0;
+}
+
+.new_event textarea {
+  width: 100%;
+  min-height: 5em;
+  resize: vertical;
+}
+
+.new_event fieldset {
+  width: 100%;
+  border: none;
+}
