@@ -1,0 +1,9 @@
+<%= form_for @event do |f| %>
+  <fieldset>
+    <%= f.label :log, class: "label" %>
+    <%= f.text_area :log %>
+  </fieldset>
+  <fieldset>
+    <%= f.submit "Save Log Event" %>
+  </fieldset>
+<% end %>
