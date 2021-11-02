@@ -15,12 +15,15 @@
  *= require_self
  */
 
+ @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,700&family=Roboto:ital,wght@0,700;1,400&display=swap');
+
  html, body {
    min-height: 100vh;
  }
 
 html {
   box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 }
 *, *:before, *:after {
   box-sizing: inherit;
