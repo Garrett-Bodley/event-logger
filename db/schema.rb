@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_01_221344) do
+ActiveRecord::Schema.define(version: 2021_11_02_165530) do
 
   create_table "events", force: :cascade do |t|
-    t.text "log"
-    t.decimal "source"
-    t.decimal "destination"
+    t.text "log_txt"
+    t.string "src"
+    t.string "dst"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
