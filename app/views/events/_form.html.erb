@@ -1,4 +1,10 @@
 <%= form_for @event, html: {class: "new_event card"} do |f| %>
+  <% if !!@alert %>
+    <fieldset class="alert"><%=@alert%></fieldset>
+  <% end %>
+  <fieldset>
+    <h2>New Log Event</h2>
+  </fieldset>
   <fieldset>
     <%= f.label :log_txt, "Paste log text here:", class: "label" %>
     <%= f.text_area :log_txt %>
