@@ -8,12 +8,12 @@ class EventsController < ApplicationController
 
   def create
     @alert = alert
-    @event = Event.new(parse_log(event_params))
+    @event = Event.new(parse_log(event_params[:log_txt]))
     if @event.save 
       redirect_to @event
+    else
+      render :new
     end
-    @alert = "Invalid input provided!"
-    render :new
   end
 
   def show
