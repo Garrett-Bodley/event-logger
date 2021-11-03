@@ -17,6 +17,6 @@
       <%= button_to "Delete This Event", @event, method: :delete, class: "event-control" %>
     </article>
   </section>
-  <%= render partial: "/comments/form" %>
+  <%= render partial: "/comments/form", locals: {parent: @event} %>
   <%= render partial: "/comments/comments_list", locals: {comments: @event.comments} %>
 </div>
