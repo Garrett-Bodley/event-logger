@@ -3,7 +3,8 @@
     <h2>Leave a Comment</h2>
   </fieldset>
   <%= render partial: '/partials/flash', locals: { alert: @alert, notice: @notice } %>
-  <%= render partial: '/partials/errors', locals: { object: @event } %>
+  <%= render partial: '/partials/errors', locals: { object: @comment } %>
+  <%= f.hidden_field :event_id, value: @comment.event.id %>
   <fieldset>
     <%= f.label :name, "Name:", class: "label" %>
     <%= f.text_field :name, class: "comment-input" %>
