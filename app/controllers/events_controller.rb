@@ -25,24 +25,22 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    begin
-      @event = Event.find(params[:id])
-      @event.destroy
-    rescue => e
-      binding.pry
-      redirect_to events_path, alert: 'Record could not be found'
-    end
+    @event = Event.find(params[:id])
+    @event.destroy
     redirect_to events_path, notice: 'Record deleted!'
+  rescue ActiveRecord::RecordNotFound
+    redirect_to events_path, alert: 'Record could not be found'
   end
 
   private
 
   def parse_log(text)
-    src = text.match(/\ssrc=(\S*)\s/)[1]
+    src = text.match(/\ssrc=(\S*)\s/)&.[](1)
+    dst = text.match(/\sdst=(\S*)\s/)&.[](1)
+
     src_is_valid = IPAddress.valid_ip?(src)
     src_is_private = src_is_valid ? IPAddress(src).private? : false
 
-    dst = text.match(/\sdst=(\S*)\s/)[1]
     dst_is_valid = IPAddress.valid_ip?(dst)
     dst_is_private = dst_is_valid ? IPAddress(dst).private? : false
 
@@ -55,8 +53,6 @@ class EventsController < ApplicationController
       dst_is_private: dst_is_private,
       log_txt: text
     }
-  rescue NoMethodError
-    false
   end
 
   def event_params
