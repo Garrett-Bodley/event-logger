@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.event_container {
+.event-container {
   height: 100%;
   width: 100%;
   display: flex;
@@ -17,13 +17,13 @@
   padding: .5em 0;
 }
 
-.new_event textarea {
+.new-event textarea {
   width: 100%;
   min-height: 5em;
   resize: vertical;
 }
 
-.event_container fieldset {
+.event-container fieldset {
   width: 100%;
   border: none;
 }

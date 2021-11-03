@@ -1,6 +1,7 @@
-<div class="event_container">
+<div class="event-container">
   <div class="card">
     <h3>Logged Events</h3>
+    <%= render partial: '/partials/flash', locals: { alert: @alert, notice: @notice } %>
     <ul class="event_list">
       <% @events.each do |event| %>
       <li class="event_item">
@@ -11,6 +12,7 @@
       </li>
       <% end %>
     </ul>
+    <%= link_to "Add new event log", new_event_path, method: :get %>
     </div>
   </div>
 </div>

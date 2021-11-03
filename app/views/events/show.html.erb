@@ -1,4 +1,4 @@
-<div class="event_container">
+<div class="event-container">
   <section class="card">
     <article class="event-group">
       <h3>Source IP Address:</h3>
@@ -13,7 +13,8 @@
       <p><%= @event.log_txt %></p>
     </article>
     <article class="event-group">
-      <%= link_to "Return to Index", events_path %>
+      <%= link_to "Return to Index", events_path, class: "event-control" %>
+      <%= button_to "Delete This Event", @event, method: :delete, class: "event-control" %>
     </article>
   </section>
 </div>
