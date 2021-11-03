@@ -1,16 +1,14 @@
-<%= form_for @event, html: {class: "new_event card"} do |f| %>
+<%= form_for @event, html: {class: "new-event card"} do |f| %>
   <fieldset>
-    <h2>New Log Event</h2>
+    <h2>Log a new event</h2>
   </fieldset>
-  <% if !!@alert %>
-    <fieldset class="alert"><%=@alert%></fieldset>
-  <% end %>
-  <%= render partial: '/partials/errors', locals: {object: @event} %>
+  <%= render partial: '/partials/flash', locals: { alert: @alert, notice: @notice } %>
+  <%= render partial: '/partials/errors', locals: { object: @event } %>
   <fieldset>
-    <%= f.label :log_txt, "Paste log text here:", class: "label" %>
+    <%= f.label :log_txt, "Paste log here:", class: "label" %>
     <%= f.text_area :log_txt %>
   </fieldset>
   <fieldset>
-    <%= f.submit "Save Log Event" %>
+    <%= f.submit "Log Event" %>
   </fieldset>
 <% end %>
