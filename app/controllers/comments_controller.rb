@@ -26,11 +26,23 @@ class CommentsController < ApplicationController
       render :edit
     end
   end
+
+  def destroy
+    begin
+      @comment = Comment.find(params[:id])
+      event = @comment.event
+      @comment.destroy
+
+      redirect_to event, notice: "Comment successfully deleted"
+    rescue
+      redirect_to events_path, alert: "Record could not be found"
+    end
+  end
   
   private
 
   def comment_params
-    params.require(:comment).permit(:name, :content, :event_id)
+    params.require(:comment).permit(:id, :name, :content, :event_id)
   end
 
 end
