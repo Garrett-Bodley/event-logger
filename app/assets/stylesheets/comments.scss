@@ -10,7 +10,27 @@
   min-height: 0 !important; 
 }
 
+.comment-card {
+  min-height: 0 !important;
+}
+
 .comment-input {
   width: 100%;
   resize: vertical;
+}
+
+.comment-name {
+  font-weight: 700
+}
+
+.comment-buttons {
+  display: flex
+}
+
+.comment-buttons input:first-child{
+  margin-left: 0;
+}
+
+.comment-buttons input {
+  margin: 0 .5em;
 }
