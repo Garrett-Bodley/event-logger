@@ -25,7 +25,9 @@ html {
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
   line-height: 1.5;
+  font-weight: 400;
 }
+
 *, *:before, *:after {
   box-sizing: inherit;
 }
