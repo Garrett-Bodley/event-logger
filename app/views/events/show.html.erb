@@ -1,12 +1,22 @@
 <div class="event-container">
   <section class="card">
     <article class="event-group">
-      <h3>Source IP Address:</h3>
-      <p><%= @event.src %></p>
+      <h3>Source IP:</h3>
+      <li class="info-item"><b>Address: </b><%= @event.src %> </li>
+      <li class="info-item"><b>Is Valid: </b><%= @event.src_is_valid %> </li>
+      <li class="info-item">
+        <b>Is Private: </b><%= @event.src_is_valid ? @event.src_is_private : "N/A" %>
+      </li>
+      <li class="info-item"><b>Address: </b><%= @event.src %> </li>
     </article>
     <article class="event-group">
       <h3>Destination IP Address:</h3>
-      <p><%= @event.dst %></p>
+      <li class="info-item"><b>Address: </b><%= @event.src %> </li>
+      <li class="info-item"><b>Is Valid: </b><%= @event.src_is_valid %> </li>
+      <li class="info-item">
+        <b>Is Private: </b><%= @event.src_is_valid ? @event.src_is_private : "N/A" %>
+      </li>
+      <li class="info-item"><b>Address: </b><%= @event.src %> </li>
     </article>
     <article class="event-group">
       <h3>Full log text:</h3>
@@ -17,6 +27,6 @@
       <%= button_to "Delete This Event", @event, method: :delete, class: "event-control" %>
     </article>
   </section>
-  <%= render partial: "/comments/form", locals: {parent: @event} %>
-  <%= render partial: "/comments/comments_list", locals: {comments: @event.comments} %>
+  <%= render partial: "/comments/form", locals: { parent: @event } %>
+  <%= render partial: "/comments/comments_list", locals: { comments: @event.comments } %>
 </div>
