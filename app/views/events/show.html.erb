@@ -18,4 +18,5 @@
     </article>
   </section>
   <%= render partial: "/comments/form" %>
+  <%= render partial: "/comments/comments_list", locals: {comments: @event.comments} %>
 </div>
