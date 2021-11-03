@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 2021_11_03_162914) do
     t.text "log_txt"
     t.string "src"
     t.string "dst"
+    t.boolean "is_valid", default: false, null: false
+    t.boolean "is_private", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
