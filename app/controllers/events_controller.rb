@@ -1,14 +1,14 @@
 class EventsController < ApplicationController
 
   def new
+    @notice = notice
     @alert = alert
-    @event ||= Event.new
+    @event = Event.new
   end
 
   def create
-    @alert = alert
     @event = Event.new(parse_log(event_params[:log_txt]))
-    if @event.save 
+    if @event.save
       redirect_to @event
     else
       render :new
@@ -19,12 +19,23 @@ class EventsController < ApplicationController
     begin
       @event = Event.find(params[:id])
     rescue
-      redirect_to new_event_path, alert: "Event with ID of #{params[:id]} does not exist!"
+      redirect_to new_event_path, notice: "Event with ID of #{params[:id]} does not exist!"
     end
   end
 
   def index
+    @notice = notice
     @events = Event.all
+  end
+
+  def destroy
+    begin
+      @event = Event.find(params[:id])
+      @event.destroy
+    rescue => exception
+      redirect_to events_path, notice: "Record could not be found"
+    end
+    redirect_to events_path, notice: "Record deleted!"
   end
 
   private
