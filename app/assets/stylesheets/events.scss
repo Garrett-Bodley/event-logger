@@ -38,7 +38,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding: 2em 1em;
+  padding: 2em;
   height: 100%;
   min-height: 30em;
   margin: 1em;
@@ -68,7 +68,6 @@
 }
 
 .event_item {
-  line-height: 1.5;
   display: flex;
   justify-content: space-around;
   cursor: pointer;
