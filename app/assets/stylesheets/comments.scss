@@ -1,3 +1,16 @@
 // Place all the styles related to the comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.new-comment fieldset {
+  width: 100%;
+  border: none;
+}
+
+.new-comment {
+  min-height: 0 !important; 
+}
+
+.comment-input {
+  width: 100%;
+  resize: vertical;
+}
