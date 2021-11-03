@@ -16,6 +16,7 @@ class EventsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
     begin
       @event = Event.find(params[:id])
     rescue
