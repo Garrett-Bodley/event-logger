@@ -16,9 +16,11 @@ class EventsController < ApplicationController
   end
 
   def show
-    @comment = Comment.new
+    @updated_obj_id = updated_obj_id
+    @notice = notice
     begin
       @event = Event.find(params[:id])
+      @comment = Comment.new(event: @event)
     rescue
       redirect_to new_event_path, notice: "Event with ID of #{params[:id]} does not exist!"
     end
