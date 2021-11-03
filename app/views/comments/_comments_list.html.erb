@@ -1,10 +1,17 @@
 <% comments.each do |comment| %>
     <% if comment.valid? %>
-      <div class="card">
-        <span><%= comment.user.name %></span>
-        <span><%= comment.content %></span>
-        <%= button_to "Edit Comment", edit_comment_path(comment), class: "", method: :get %>
-        <%= button_to "Delete Comment", comment, class: "", method: :delete %>
+      <div class="card comment-card">
+        <% if !!@updated_obj_id && @updated_obj_id == comment.id %>
+          <fieldset class="flash notice">Comment updated</fieldset>
+        <% end %>
+        <fieldset>
+          <span class="comment-name"><%= comment.name %>: </span>
+          <span><%= comment.content %></span>
+        </fieldset>
+        <fieldset class="comment-buttons">
+          <%= button_to "Edit Comment", edit_comment_path(comment), class: "", method: :get %>
+          <%= button_to "Delete Comment", comment, class: "", method: :delete %>
+        </fieldset>
       </div>
     <% end %>
 <% end %>
