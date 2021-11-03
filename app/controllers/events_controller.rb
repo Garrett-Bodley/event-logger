@@ -1,8 +1,6 @@
 class EventsController < ApplicationController
 
   def new
-    @notice = notice
-    @alert = alert
     @event = Event.new
   end
 
@@ -16,18 +14,15 @@ class EventsController < ApplicationController
   end
 
   def show
-    @updated_obj_id = updated_obj_id
-    @notice = notice
     begin
       @event = Event.find(params[:id])
       @comment = Comment.new(event: @event)
     rescue
-      redirect_to new_event_path, notice: "Event with ID of #{params[:id]} does not exist!"
+      redirect_to events_path, alert: "Event with ID of #{params[:id]} does not exist!"
     end
   end
 
   def index
-    @notice = notice
     @events = Event.all
   end
 
@@ -36,7 +31,7 @@ class EventsController < ApplicationController
       @event = Event.find(params[:id])
       @event.destroy
     rescue => exception
-      redirect_to events_path, notice: "Record could not be found"
+      redirect_to events_path, alert: "Record could not be found"
     end
     redirect_to events_path, notice: "Record deleted!"
   end
