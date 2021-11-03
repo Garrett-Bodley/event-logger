@@ -3,10 +3,10 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     if @comment.save
-      redirect_to event_path(@comment.event)
+      redirect_to event_path(@comment.event), notice: 'Comment added'
     else
       @event = Event.find(comment_params[:event_id])
-      render template: "events/show"
+      render template: 'events/show'
     end
   end
 
@@ -29,16 +29,15 @@ class CommentsController < ApplicationController
       event = @comment.event
       @comment.destroy
 
-      redirect_to event, notice: "Comment successfully deleted"
+      redirect_to event, notice: 'Comment successfully deleted'
     rescue
-      redirect_to events_path, alert: "Record could not be found"
+      redirect_to events_path, alert: 'Record could not be found'
     end
   end
-  
+
   private
 
   def comment_params
     params.require(:comment).permit(:id, :name, :content, :event_id)
   end
-
 end
