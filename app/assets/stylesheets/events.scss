@@ -23,7 +23,7 @@
   resize: vertical;
 }
 
-.new_event fieldset {
+.event_container fieldset {
   width: 100%;
   border: none;
 }
@@ -47,10 +47,17 @@
   width: 100%;
 }
 
-.alert {
+.flash {
   width: 100%;
   font-weight: 700;
-  color: red;
+}
+
+.alert {
+  color:red
+}
+
+.notice {
+  color: blue
 }
 
 .event_list {
@@ -64,4 +71,8 @@
   display: flex;
   justify-content: space-around;
   cursor: pointer;
+}
+
+.event-control {
+  margin: 1em 0;
 }
