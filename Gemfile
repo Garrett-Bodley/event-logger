@@ -19,6 +19,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 
 gem 'normalize-rails'
+gem 'ipaddress_2'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
