@@ -1,0 +1,10 @@
+<% object.comments.each do |comment| %>
+    <% if comment.valid? %>
+      <div class="card">
+        <span><%= comment.user.name %></span>
+        <span><%= comment.content %></span>
+        <%= button_to "Edit Comment", edit_comment_path(comment), class: "", method: :get %>
+        <%= button_to "Delete Comment", comment, class: "", method: :delete %>
+      </div>
+    <% end %>
+<% end %>
