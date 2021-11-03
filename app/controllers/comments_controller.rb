@@ -1,9 +1,5 @@
 class CommentsController < ApplicationController
 
-  def index
-    redirect_to events_path
-  end
-
   def create
     @comment = Comment.new(comment_params)
     if @comment.save
