@@ -33,17 +33,17 @@ RSpec.describe Event, type: :model do
   describe 'Testing validations' do
     it 'Requires a src value' do
       event = Event.new(dst: Faker::Internet.ip_v4_address, log_txt: Faker::Lorem.paragraph)
-      expect(event.save).to eq(false)
+      expect(event.valid?).to eq(false)
     end
 
     it 'Requires a dst value' do
       event = Event.new(src: Faker::Internet.ip_v4_address, log_txt: Faker::Lorem.paragraph)
-      expect(event.save).to eq(false)
+      expect(event.valid?).to eq(false)
     end
 
     it 'Rejects a log_txt value' do
       event = Event.new(src: Faker::Internet.ip_v4_address, dst: Faker::Internet.ip_v4_address)
-      expect(event.save).to eq(false)
+      expect(event.valid?).to eq(false)
     end
   end
 end
