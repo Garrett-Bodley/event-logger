@@ -2,8 +2,8 @@
   <fieldset class="alert">
     <p><%= pluralize(object.errors.count, "error") %> prohibited this from being saved:</p>
     <ul>
-      <% object.errors.each do |attr, msg| %>
-       <li><%= msg %></li>
+      <% object.errors.each do |error| %>
+       <li><%= error.message %></li>
       <% end %>
     </ul>
   </fieldset>
