@@ -34,7 +34,10 @@ gem 'bootsnap', '>= 1.4.4', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'faker'
   gem 'pry-rails'
+  gem 'rails-controller-testing'
+  gem 'rspec-rails'
   gem 'rubocop-rails'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3', '~> 1.4'
@@ -56,7 +59,6 @@ group :test do
   gem 'capybara', '>= 3.26'
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
-  gem 'rspec-rails'
   gem 'webdrivers'
 end
 
