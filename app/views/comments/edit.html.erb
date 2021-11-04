@@ -2,7 +2,7 @@
   <fieldset>
     <h2>Edit comment</h2>
   </fieldset>
-  <%= render partial: '/partials/flash', locals: { alert: @alert, notice: @notice } %>
+  <%= render partial: '/partials/flash', locals: { alert: flash[:alert], notice: flash[:notice] } %>
   <%= render partial: '/partials/errors', locals: { object: @comment } %>
   <%= f.hidden_field :event_id, value: @comment.event.id %>
   <fieldset>

@@ -1,7 +1,7 @@
 <% comments.each do |comment| %>
     <% if comment.valid? %>
       <div class="card comment-card">
-        <% if !!@updated_obj_id && @updated_obj_id == comment.id %>
+        <% if !!flash[:updated_obj_id] && flash[:updated_obj_id] == comment.id %>
           <fieldset class="flash notice">Comment updated</fieldset>
         <% end %>
         <fieldset>

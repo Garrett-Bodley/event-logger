@@ -2,7 +2,7 @@
   <fieldset>
     <h2>Log a new event</h2>
   </fieldset>
-  <%= render partial: '/partials/flash', locals: { alert: @alert, notice: @notice } %>
+  <%= render partial: '/partials/flash', locals: { alert: flash[:alert], notice: flash[:notice] } %>
   <%= render partial: '/partials/errors', locals: { object: @event } %>
   <fieldset>
     <%= f.label :log_txt, "Paste log here:", class: "label" %>
