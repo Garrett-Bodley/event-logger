@@ -12,6 +12,8 @@ class CommentsController < ApplicationController
 
   def edit
     @comment = Comment.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    redirect_to events_path, alert: 'Record could not be found'
   end
 
   def update
@@ -21,13 +23,14 @@ class CommentsController < ApplicationController
     else
       render :edit
     end
+  rescue ActiveRecord::RecordNotFound
+    redirect_to events_path, alert: 'Record could not be found'
   end
 
   def destroy
     @comment = Comment.find(params[:id])
     event = @comment.event
     @comment.destroy
-
     redirect_to event, notice: 'Comment successfully deleted'
   rescue ActiveRecord::RecordNotFound
     redirect_to events_path, alert: 'Record could not be found'
