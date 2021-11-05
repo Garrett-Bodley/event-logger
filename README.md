@@ -1,24 +1,51 @@
-# README
+<h1 align="center">Welcome to event-logger 👋</h1>
+<p>
+  <a href="https://www.npmjs.com/package/event-logger" target="_blank">
+    <img alt="Version" src="https://img.shields.io/npm/v/event-logger.svg">
+  </a>
+  <a href="https://github.com/Garrett-Bodley/event-logger/blob/main/LICENSE.md" target="_blank">
+    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+  </a>
+</p>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+> A simple web app to help parse firewall log events
 
-Things you may want to cover:
+### ✨ [Demo](http://event-logger-adlumin.herokuapp.com/)
 
-* Ruby version
+## Install
 
-* System dependencies
+```sh
+bundle install rake db:migrate
+```
 
-* Configuration
+## Usage
 
-* Database creation
+```sh
+rails s
+```
 
-* Database initialization
+## Run tests
 
-* How to run the test suite
+```sh
+rails rspec
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+## Author
 
-* Deployment instructions
+👤 **Garrett Bodley**
 
-* ...
+* Website: https://www.linkedin.com/in/garrett-bodley/
+* Github: [@Garrett-Bodley](https://github.com/Garrett-Bodley)
+* LinkedIn: [@GarrettBodley](https://linkedin.com/in/GarrettBodley)
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
+
+## 📝 License
+
+Copyright © 2021 [Garrett Bodley](https://github.com/Garrett-Bodley).<br />
+This project is [MIT](https://github.com/Garrett-Bodley/event-logger/blob/main/LICENSE.md) licensed.
+
+***
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
